@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Local Storage</title>
+</head>
+<body>
+    <label for="">User Name</label>
+    <input type="text" id="uname">
+    <br>
+    <br>
+    <input type="submit" value="store" onclick="store()">
+    <input type="submit" value="reset" onclick="reset()">
+    <br>
+    <div id="demo"></div>
+    <script>
+        // localStorage is a key that allows javascript sites and apps to
+        // save key - value pairs in a web browser with no expiration date
+
+        function store(){
+            if(("localStorage" in window) && ["localStorage"] !== null){
+            var uname = document.getElementById("uname").value;
+            localStorage.setItem("user name", uname);
+            document.getElementById("demo").innerHTML=localStorage.getItem("user name");
+            }
+        else{
+            document.getElementById("demo").innerHTML="not responding"
+        }
+        
+        }
+        function reset(){
+            if(("localStorage" in window) && ["localStorage"] !== null){
+                localStorage.removeItem("user name");
+            } 
+        }
+    </script>
+</body>
+</html>
